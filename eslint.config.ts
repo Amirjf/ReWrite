@@ -6,10 +6,10 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import reactPlugin from 'eslint-plugin-react';
 import { browser, es2020, node } from 'globals';
-import { config, configs as tsConfigs, parser as tsParser } from 'typescript-eslint';
+import { configs as tsConfigs, parser as tsParser } from 'typescript-eslint';
 import type { FixupConfigArray } from '@eslint/compat';
 
-export default config(
+export default [
   // Shared configs
   js.configs.recommended,
   ...tsConfigs.recommended,
@@ -102,4 +102,21 @@ export default config(
       'no-restricted-imports': 'off',
     },
   },
-);
+  // JavaScript files in api directory
+  {
+    files: ['api/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...node,
+        ...es2020,
+      },
+    },
+    rules: {
+      'prefer-const': 'error',
+      'no-var': 'error',
+      'import-x/no-named-as-default-member': 'warn',
+    },
+  },
+];
