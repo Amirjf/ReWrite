@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_7092" data-name="Group 7092" transform="translate(-2078 -17142)">
+    <circle id="Ellipse_2323" data-name="Ellipse 2323" cx="8" cy="8" r="8" transform="translate(2078 17142)" fill="#e6137a"></circle>
+    <g id="polkadot-new-dot-logo" transform="translate(2079.23 17143.531)">
+      <ellipse id="Ellipse_2317" data-name="Ellipse 2317" cx="2.343" cy="1.363" rx="2.343" ry="1.363" transform="translate(4.455 0)" fill="#fff"></ellipse>
+      <ellipse id="Ellipse_2318" data-name="Ellipse 2318" cx="2.343" cy="1.363" rx="2.343" ry="1.363" transform="translate(4.455 10.268)" fill="#fff"></ellipse>
+      <ellipse id="Ellipse_2319" data-name="Ellipse 2319" cx="2.343" cy="1.364" rx="2.343" ry="1.364" transform="matrix(0.5, -0.866, 0.866, 0.5, 0, 5.277)" fill="#fff"></ellipse>
+      <ellipse id="Ellipse_2320" data-name="Ellipse 2320" cx="2.343" cy="1.363" rx="2.343" ry="1.363" transform="matrix(0.5, -0.866, 0.866, 0.5, 8.893, 10.411)" fill="#fff"></ellipse>
+      <ellipse id="Ellipse_2321" data-name="Ellipse 2321" cx="1.364" cy="2.343" rx="1.364" ry="2.343" transform="matrix(0.866, -0.5, 0.5, 0.866, 0, 7.716)" fill="#fff"></ellipse>
+      <ellipse id="Ellipse_2322" data-name="Ellipse 2322" cx="1.363" cy="2.343" rx="1.363" ry="2.343" transform="matrix(0.866, -0.5, 0.5, 0.866, 8.893, 2.582)" fill="#fff"></ellipse>
+    </g>
+  </g>
+</svg>
