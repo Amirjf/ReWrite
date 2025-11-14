@@ -6,7 +6,7 @@ import { cn, ErrorDisplay, LoadingSpinner } from '@extension/ui';
 import { useState, useMemo, useEffect } from 'react';
 
 // API URL - change this to your deployed API URL (e.g., 'https://your-api.hetzner.com')
-const API_URL = 'http://localhost:4000';
+const API_URL = 'http://localhost:3000';
 
 // Validation constants (must match backend)
 const MAX_CHARACTERS = 2000;
