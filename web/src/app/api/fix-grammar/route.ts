@@ -16,7 +16,6 @@ const grammarCorrectionSchema = z.object({
 
 const openai = createOpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,
-
   baseURL: 'https://openrouter.ai/api/v1',
   headers: {
     'HTTP-Referer': process.env.APP_URL || 'http://localhost:3000',
@@ -26,6 +25,35 @@ const openai = createOpenAI({
 
 export async function POST(request: NextRequest) {
   try {
+    // Security Layer 1: Validate Chrome Extension Origin
+    const origin = request.headers.get('origin');
+    const allowedExtensionId = process.env.CHROME_EXTENSION_ID;
+
+    console.log({ origin });
+
+    // In production, validate the extension ID
+    if (process.env.NODE_ENV === 'production' && allowedExtensionId) {
+      const expectedOrigin = `chrome-extension://${allowedExtensionId}`;
+      if (origin !== expectedOrigin) {
+        console.warn(`Unauthorized origin attempt: ${origin}`);
+        return NextResponse.json(
+          { error: 'Unauthorized - Invalid origin' },
+          { status: 403 }
+        );
+      }
+    }
+
+    // Security Layer 2: Validate API key (optional, for dev/testing)
+    const apiKey = request.headers.get('X-API-Key');
+    const validApiKey = process.env.API_SECRET_KEY;
+
+    if (validApiKey && (!apiKey || apiKey !== validApiKey)) {
+      return NextResponse.json(
+        { error: 'Unauthorized - Invalid API key' },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
     const { text } = body;
 

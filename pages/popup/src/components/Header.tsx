@@ -17,7 +17,7 @@ export const Header = () => (
         className={cn(
           'bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-left text-2xl font-bold text-transparent',
         )}>
-        ReWrite
+        ReWrite AI
       </h1>
     </div>
   </div>

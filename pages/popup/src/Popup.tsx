@@ -5,12 +5,13 @@ import { FixGrammarButton } from './components/FixGrammarButton';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { InputTextArea } from './components/InputTextArea';
+import { API_ENDPOINT, API_SECRET_KEY } from '../../../packages/env/lib';
 import { withErrorBoundary, withSuspense, useStorage } from '@extension/shared';
 import { createStorage, StorageEnum } from '@extension/storage/lib/base/index.js';
 import { ErrorDisplay, LoadingSpinner } from '@extension/ui';
 import { useState, useMemo, useEffect } from 'react';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = API_ENDPOINT;
 
 // Validation constants (must match backend)
 const MAX_CHARACTERS = 2000;
@@ -109,6 +110,7 @@ const Popup = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-API-Key': API_SECRET_KEY || '',
         },
         body: JSON.stringify({ text: inputText }),
       });

@@ -34,28 +34,29 @@ cd ReWrite
 pnpm install
 ```
 
-### 2. Setup API Server
+### 2. Setup Environment Variables
 
+**Generate a secure API key:**
 ```bash
-cd api
-cp ENV_EXAMPLE.txt .env
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-Edit `.env` and add your OpenRouter API key:
+**Configure the extension:**
+```bash
+pnpm set-global-env CEB_API_URL=http://localhost:3000 CEB_API_SECRET_KEY=your_generated_key_here
+```
 
+**Configure the web API:**
+
+Create `web/.env.local`:
 ```env
-OPENROUTER_API_KEY=your_openrouter_api_key_here
-OPENROUTER_MODEL=openai/gpt-4o-2024-08-06
-PORT=4000
-APP_URL=http://localhost:4000
+API_SECRET_KEY=your_generated_key_here
+OPENROUTER_API_KEY=your_openrouter_key_here
+APP_URL=http://localhost:3000
+OPENROUTER_MODEL=qwen/qwen-2.5-72b-instruct
 ```
 
-Start the API server:
-
-```bash
-npm install
-npm start
-```
+> **⚠️ Security Note**: See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for detailed security configuration and best practices.
 
 ### 3. Build Extension
 
