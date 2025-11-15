@@ -5,7 +5,6 @@ import { createStorage, StorageEnum } from '@extension/storage/lib/base/index.js
 import { cn, ErrorDisplay, LoadingSpinner } from '@extension/ui';
 import { useState, useMemo, useEffect } from 'react';
 
-// API URL - change this to your deployed API URL (e.g., 'https://your-api.hetzner.com')
 const API_URL = 'http://localhost:3000';
 
 // Validation constants (must match backend)
@@ -145,7 +144,7 @@ const Popup = () => {
   return (
     <div className={cn('App', isLight ? 'bg-slate-50' : 'bg-gray-800')}>
       <div className={cn('flex h-full flex-col gap-4 p-4', isLight ? 'text-gray-900' : 'text-gray-100')}>
-        <h1 className={cn('text-center text-xl font-bold')}>Grammar Fixer</h1>
+        <h1 className={cn('text-left text-xl font-bold')}>Rewrite</h1>
 
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
