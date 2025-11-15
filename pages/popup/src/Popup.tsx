@@ -11,7 +11,7 @@ import { createStorage, StorageEnum } from '@extension/storage/lib/base/index.js
 import { ErrorDisplay, LoadingSpinner } from '@extension/ui';
 import { useState, useMemo, useEffect } from 'react';
 
-const API_URL = API_ENDPOINT;
+const API_URL = API_ENDPOINT || 'https://rewrite-chrome.vercel.app';
 
 // Validation constants (must match backend)
 const MAX_CHARACTERS = 2000;
@@ -110,7 +110,7 @@ const Popup = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-API-Key': API_SECRET_KEY || '',
+          'X-API-Key': API_SECRET_KEY || 'password@123',
         },
         body: JSON.stringify({ text: inputText }),
       });
