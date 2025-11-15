@@ -16,6 +16,7 @@ const grammarCorrectionSchema = z.object({
 
 const openai = createOpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,
+
   baseURL: 'https://openrouter.ai/api/v1',
   headers: {
     'HTTP-Referer': process.env.APP_URL || 'http://localhost:3000',
@@ -62,7 +63,9 @@ export async function POST(request: NextRequest) {
     );
 
     const result = await generateObject({
-      model: openai(process.env.OPENROUTER_MODEL || 'gpt-4o-2024-08-06'),
+      model: openai(
+        process.env.OPENROUTER_MODEL || 'qwen/qwen-2.5-72b-instruct'
+      ),
       schema: grammarCorrectionSchema,
 
       messages: [
@@ -86,7 +89,7 @@ Rules:
           content: text,
         },
       ],
-      temperature: 0.0,
+      temperature: 0.4,
       maxOutputTokens: calculatedMaxTokens,
     });
 

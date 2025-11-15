@@ -10,6 +10,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@ai-sdk/deepinfra": "^1.0.28",
+    "@ai-sdk/openai": "^2.0.67",
     "@google-analytics/data": "^5.2.1",
     "@next/third-parties": "^16.0.0",
     "@radix-ui/react-accordion": "^1.2.12",
