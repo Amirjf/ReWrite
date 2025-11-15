@@ -9,16 +9,14 @@ export const ThemeToggle = () => {
     <button
       onClick={() => exampleThemeStorage.toggle()}
       className={cn(
-        'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
-        isLight ? 'bg-gray-300 focus:ring-gray-500' : 'bg-blue-600 focus:ring-blue-500',
+        'relative inline-flex h-7 w-12 items-center rounded-full shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95',
+        'bg-gradient-to-r from-gray-300 to-gray-400 focus:ring-indigo-500',
+        'dark:from-indigo-600 dark:to-purple-600 dark:shadow-indigo-500/30 dark:focus:ring-indigo-400',
       )}
       aria-label="Toggle dark mode">
       {/* Sun icon for light mode - positioned on the left */}
       <svg
-        className={cn(
-          'absolute left-1 h-3.5 w-3.5 transition-opacity',
-          isLight ? 'text-yellow-500 opacity-100' : 'text-gray-100 opacity-85',
-        )}
+        className="absolute left-1 h-3.5 w-3.5 text-yellow-500 opacity-100 transition-opacity dark:text-gray-100 dark:opacity-85"
         fill="currentColor"
         viewBox="0 0 20 20">
         <path
@@ -29,17 +27,14 @@ export const ThemeToggle = () => {
       </svg>
       {/* Moon icon for dark mode - positioned on the right */}
       <svg
-        className={cn(
-          'absolute right-1 h-3.5 w-3.5 transition-opacity',
-          !isLight ? 'text-blue-200 opacity-100' : 'text-gray-900 opacity-70',
-        )}
+        className="absolute right-1 h-3.5 w-3.5 text-gray-900 opacity-70 transition-opacity dark:text-blue-200 dark:opacity-100"
         fill="currentColor"
         viewBox="0 0 20 20">
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
       </svg>
       <span
         className={cn(
-          'relative z-10 inline-block h-4 w-4 transform rounded-full bg-white shadow-md transition-transform',
+          'relative z-10 inline-block h-5 w-5 transform rounded-full bg-white shadow-lg transition-transform duration-300',
           isLight ? 'translate-x-1' : 'translate-x-6',
         )}
       />

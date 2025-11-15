@@ -6,9 +6,8 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { InputTextArea } from './components/InputTextArea';
 import { withErrorBoundary, withSuspense, useStorage } from '@extension/shared';
-import { exampleThemeStorage } from '@extension/storage';
 import { createStorage, StorageEnum } from '@extension/storage/lib/base/index.js';
-import { cn, ErrorDisplay, LoadingSpinner } from '@extension/ui';
+import { ErrorDisplay, LoadingSpinner } from '@extension/ui';
 import { useState, useMemo, useEffect } from 'react';
 
 const API_URL = 'http://localhost:3000';
@@ -48,7 +47,6 @@ const popupStateStorage = createStorage<PopupState>(
 );
 
 const Popup = () => {
-  const { isLight } = useStorage(exampleThemeStorage);
   const storedState = useStorage(popupStateStorage);
   const [inputText, setInputText] = useState('');
   const [correctedText, setCorrectedText] = useState('');
@@ -136,7 +134,6 @@ const Popup = () => {
     }
   };
 
-  // Reset "Copied!" message after 2 seconds
   useEffect(() => {
     if (copied) {
       const timer = setTimeout(() => {
@@ -148,8 +145,8 @@ const Popup = () => {
   }, [copied]);
 
   return (
-    <div className={cn('App', isLight ? 'bg-slate-50' : 'bg-gray-800')}>
-      <div className={cn('flex h-full flex-col gap-4 p-4', isLight ? 'text-gray-900' : 'text-gray-100')}>
+    <div className="App bg-gray-900">
+      <div className="relative z-10 flex h-full flex-col gap-5 p-6 text-gray-100">
         <Header />
 
         <InputTextArea
@@ -158,21 +155,13 @@ const Popup = () => {
           isLoading={isLoading}
           validation={validation}
           maxCharacters={MAX_CHARACTERS}
-          isLight={isLight}
         />
 
-        <FixGrammarButton
-          onClick={handleFixGrammar}
-          isLoading={isLoading}
-          isValid={validation.isValid}
-          isLight={isLight}
-        />
+        <FixGrammarButton onClick={handleFixGrammar} isLoading={isLoading} isValid={validation.isValid} />
 
-        {error && <ErrorMessage error={error} isLight={isLight} />}
+        {error && <ErrorMessage error={error} />}
 
-        {correctedText && (
-          <CorrectedTextBox correctedText={correctedText} copied={copied} onCopy={handleCopy} isLight={isLight} />
-        )}
+        {correctedText && <CorrectedTextBox correctedText={correctedText} copied={copied} onCopy={handleCopy} />}
 
         <Footer />
       </div>

@@ -10,7 +10,6 @@ interface InputTextAreaProps {
     isValid: boolean;
   };
   maxCharacters: number;
-  isLight: boolean;
 }
 
 export const InputTextArea = ({
@@ -19,19 +18,15 @@ export const InputTextArea = ({
   isLoading,
   validation,
   maxCharacters,
-  isLight,
 }: InputTextAreaProps) => (
-  <div className="flex flex-col gap-2">
+  <div className="flex flex-col gap-3">
     <div className="flex items-center justify-between">
-      <label htmlFor="inputText" className="text-sm font-medium">
+      <label htmlFor="inputText" className="text-sm font-semibold text-gray-100">
         Enter text to fix:
       </label>
       <span
-        className={cn(
-          validation.exceedsChars ? 'text-red-500' : isLight ? 'text-gray-600' : 'text-gray-400',
-          'text-xs',
-        )}>
-        {validation.charCount}/{maxCharacters} chars
+        className={cn('font-mono text-xs', validation.exceedsChars ? 'font-semibold text-red-400' : 'text-gray-400')}>
+        {validation.charCount}/{maxCharacters}
       </span>
     </div>
     <textarea
@@ -40,14 +35,10 @@ export const InputTextArea = ({
       onChange={e => setInputText(e.target.value)}
       placeholder="Type or paste your text here..."
       className={cn(
-        'min-h-[100px] w-full resize-none rounded border p-2',
+        'min-h-[120px] w-full resize-none rounded-xl border-2 bg-gray-800/50 p-4 text-sm text-gray-100 shadow-lg backdrop-blur-sm transition-all duration-200 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900',
         validation.exceedsChars
-          ? isLight
-            ? 'border-red-300 bg-red-50 text-gray-900'
-            : 'border-red-600 bg-red-900/20 text-gray-100'
-          : isLight
-            ? 'border-gray-300 bg-white text-gray-900'
-            : 'border-gray-600 bg-gray-700 text-gray-100',
+          ? 'border-red-600 bg-red-900/10 focus:border-red-500 focus:ring-red-500'
+          : 'border-gray-700 hover:border-indigo-600 focus:border-indigo-500 focus:ring-indigo-500',
       )}
       disabled={isLoading}
     />
