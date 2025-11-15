@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -72,7 +70,7 @@ const page = () => {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50'>
+    <div className='min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50'>
       {/* Header */}
       <header className='border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50'>
         <div className='container mx-auto px-4 py-4 flex items-center justify-between'>
@@ -86,11 +84,11 @@ const page = () => {
                 height={40}
               />
             </div>
-            <span className='text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+            <span className='text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
               ReWrite
             </span>
           </div>
-          <Button className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'>
+          <Button className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'>
             <Chrome className='mr-2 h-4 w-4' />
             Add to Chrome
           </Button>
@@ -110,7 +108,7 @@ const page = () => {
                 width={1000}
                 height={1000}
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-black/10 to-transparent'></div>
+              <div className='absolute inset-0 bg-linear-to-t from-black/10 to-transparent'></div>
             </div>
           </div>
 
@@ -123,7 +121,7 @@ const page = () => {
 
             <h1 className='text-5xl md:text-7xl font-bold leading-tight'>
               Write with
-              <span className='bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>
+              <span className='bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>
                 {' '}
                 Confidence
               </span>
@@ -137,7 +135,7 @@ const page = () => {
             <div className='flex flex-col sm:flex-row gap-4'>
               <Button
                 size='lg'
-                className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all'
+                className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all'
               >
                 <Chrome className='mr-2 h-5 w-5' />
                 Install Free Extension
@@ -171,7 +169,7 @@ const page = () => {
       </section>
 
       {/* Stats Section */}
-      <section className='bg-gradient-to-r from-blue-600 to-purple-600 py-12'>
+      <section className='bg-linear-to-r from-blue-600 to-purple-600 py-12'>
         <div className='container mx-auto px-4'>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
             {stats.map((stat, index) => (
@@ -210,7 +208,7 @@ const page = () => {
               className='border-2 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group'
             >
               <CardHeader>
-                <div className='w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform'>
+                <div className='w-12 h-12 bg-linear-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform'>
                   <div className='text-blue-600'>{feature.icon}</div>
                 </div>
                 <CardTitle className='text-xl'>{feature.title}</CardTitle>
@@ -254,7 +252,7 @@ const page = () => {
             ].map((item, index) => (
               <div key={index} className='relative'>
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow h-full'>
-                  <div className='w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold mb-6 shadow-lg'>
+                  <div className='w-16 h-16 bg-linear-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold mb-6 shadow-lg'>
                     {item.step}
                   </div>
                   <h3 className='text-2xl font-bold mb-3'>{item.title}</h3>
@@ -273,7 +271,7 @@ const page = () => {
 
       {/* CTA Section */}
       <section className='container mx-auto px-4 py-20 md:py-32'>
-        <div className='max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl'>
+        <div className='max-w-4xl mx-auto bg-linear-to-r from-blue-600 to-purple-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-2xl'>
           <h2 className='text-4xl md:text-5xl font-bold mb-6'>
             Ready to Transform Your Writing?
           </h2>
@@ -300,10 +298,10 @@ const page = () => {
         <div className='container mx-auto px-4'>
           <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
             <div className='flex items-center gap-2'>
-              <div className='w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center'>
+              <div className='w-8 h-8 bg-linear-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center'>
                 <Sparkles className='h-5 w-5 text-white' />
               </div>
-              <span className='text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+              <span className='text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
                 ReWrite
               </span>
             </div>
