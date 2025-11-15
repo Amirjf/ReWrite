@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
     "description": "Extension description",
-    "message": "Chrome extension boilerplate developed with Vite, React and Typescript"
+    "message": "Rewrite - An AI-powered Chrome extension that fixes grammar and spelling errors in your text."
   },
   "extensionName": {
     "description": "Extension name",
-    "message": "Chrome extension boilerplate"
+    "message": "Rewrite"
   },
   "toggleTheme": {
     "message": "Toggle theme"
