@@ -64,11 +64,30 @@ export async function POST(request: NextRequest) {
     const result = await generateObject({
       model: openai(process.env.OPENROUTER_MODEL || 'gpt-4o-2024-08-06'),
       schema: grammarCorrectionSchema,
-      prompt: `You are a helpful assistant that fixes grammar and spelling errors in text. Fix the grammar and spelling errors in the following text and return only the corrected text without any explanations or additional comments.
 
-Text to fix: "${text}"`,
-      temperature: 0.3,
-      maxTokens: calculatedMaxTokens,
+      messages: [
+        {
+          role: 'system',
+          content: `
+You are a world-class grammar and sentence correction engine.
+
+Rules:
+- Fix grammar, spelling, punctuation, clarity.
+- DO NOT change meaning.
+- DO NOT add new ideas.
+- Preserve formatting (line breaks, paragraphs).
+- Preserve tone (formal stays formal, casual stays casual).
+- No markdown, no explanations, no intro text.
+- Output ONLY the corrected text.
+`,
+        },
+        {
+          role: 'user',
+          content: text,
+        },
+      ],
+      temperature: 0.0,
+      maxOutputTokens: calculatedMaxTokens,
     });
 
     const correctedText = result.object?.correctedText || text;
