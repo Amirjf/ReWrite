@@ -13,10 +13,8 @@ import { useState, useMemo, useEffect } from 'react';
 
 const API_URL = API_ENDPOINT || 'https://rewrite-chrome.vercel.app';
 
-// Validation constants (must match backend)
 const MAX_CHARACTERS = 2000;
 
-// Storage for popup state
 interface PopupState {
   inputText: string;
   correctedText: string;
@@ -56,7 +54,6 @@ const Popup = () => {
   const [copied, setCopied] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Load state from storage on mount
   useEffect(() => {
     if (!isInitialized) {
       setInputText(storedState.inputText);
@@ -65,7 +62,6 @@ const Popup = () => {
     }
   }, [storedState, isInitialized]);
 
-  // Save state to storage whenever it changes (but not on initial load)
   useEffect(() => {
     if (isInitialized) {
       popupStateStorage.set({
@@ -75,7 +71,6 @@ const Popup = () => {
     }
   }, [inputText, correctedText, isInitialized]);
 
-  // Calculate validation metrics
   const validation = useMemo(() => {
     const charCount = inputText.length;
     const exceedsChars = charCount > MAX_CHARACTERS;
@@ -110,7 +105,7 @@ const Popup = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-API-Key': API_SECRET_KEY || 'password@123',
+          'X-API-Key': API_SECRET_KEY as string,
         },
         body: JSON.stringify({ text: inputText }),
       });
