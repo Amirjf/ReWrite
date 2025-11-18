@@ -56,7 +56,7 @@ APP_URL=http://localhost:3000
 OPENROUTER_MODEL=qwen/qwen-2.5-72b-instruct
 ```
 
-> **⚠️ Security Note**: See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for detailed security configuration and best practices.
+
 
 ### 3. Build Extension
 
