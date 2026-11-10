@@ -53,7 +53,7 @@ Create `web/.env.local`:
 API_SECRET_KEY=your_generated_key_here
 OPENROUTER_API_KEY=your_openrouter_key_here
 APP_URL=http://localhost:3000
-OPENROUTER_MODEL=qwen/qwen-2.5-72b-instruct
+OPENROUTER_MODEL=google/gemini-3.1-flash-lite
 ```
 
 
